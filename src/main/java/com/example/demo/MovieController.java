@@ -67,12 +67,12 @@ public class MovieController {
     }
 
     @PostMapping("/movies/gross/total")
-    public Map<String, Integer> sumTicketsTotal(@RequestBody() Movie[] movies) {
-        int total = 0;
+    public Map<String, Double> sumTicketsTotal(@RequestBody() Movie[] movies) {
+        double total = 0;
         for (Movie movie : movies) {
             total += movie.getGross();
         }
-        Map<String, Integer> result = new HashMap<>();
+        Map<String, Double> result = new HashMap<>();
         result.put("result", total);
         return result;
     }
